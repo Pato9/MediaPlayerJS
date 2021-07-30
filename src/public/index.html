@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediaPlayer</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MediaPlayer</h1>
+            <p>Proyecto de plataforma de video, enfocado en el media Player con JS </p>
+        </header>
+    </div>
+    <div class="main">
+        <video class="movie">
+            <source src="http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_30fps_normal.mp4"/>
+            <source src="../assets/mov_bbb.mp4">
+        </video>
+        <button id="buttonVideo">Play/Pause</button>
+    </div>
+
+    <!--Scripts-->
+    <script>
+        
+        const videoBunny = document.querySelector('video');
+        const PpButton = document.querySelector('#buttonVideo');
+
+        class MediaPlayer{
+            
+            constructor(video){
+                this.video = video;
+            }
+
+            play(){
+                this.video.play();
+            }
+
+            pause(){
+                this.video.stop();
+            }
+
+            togglePlay(){
+                this.video.paused ? this.video.play() : this.video.pause()
+            }
+
+        }
+
+        const player = new MediaPlayer(videoBunny);
+        
+        PpButton.onclick = () =>{
+            player.togglePlay();
+        }
+
+    </script>
+</body>
+</html>
